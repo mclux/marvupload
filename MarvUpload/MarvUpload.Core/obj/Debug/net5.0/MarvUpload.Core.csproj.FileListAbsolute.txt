@@ -1,0 +1,12 @@
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\bin\Debug\net5.0\MarvUpload.Core.deps.json
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\bin\Debug\net5.0\MarvUpload.Core.dll
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\bin\Debug\net5.0\ref\MarvUpload.Core.dll
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\bin\Debug\net5.0\MarvUpload.Core.pdb
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\obj\Debug\net5.0\MarvUpload.Core.csproj.AssemblyReference.cache
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\obj\Debug\net5.0\MarvUpload.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\obj\Debug\net5.0\MarvUpload.Core.AssemblyInfoInputs.cache
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\obj\Debug\net5.0\MarvUpload.Core.AssemblyInfo.cs
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\obj\Debug\net5.0\MarvUpload.Core.csproj.CoreCompileInputs.cache
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\obj\Debug\net5.0\MarvUpload.Core.dll
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\obj\Debug\net5.0\ref\MarvUpload.Core.dll
+C:\Users\oluwa\Documents\Source_codes\lexo\zarttech\marvel_test\marvupload\MarvUpload\MarvUpload.Core\obj\Debug\net5.0\MarvUpload.Core.pdb
