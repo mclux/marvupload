@@ -3,29 +3,142 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+    <div class="right">
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="dealCsv">
+        </div>
+    </div>
+
+    <br />
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+@section scripts{
+
+<script>
+
+    $(window).ready(function () {
+
+        $.ajax({
+            url: 'https://localhost:44327/api/Person',
+            error: function () {
+
+            },
+            contentType: "application/json",
+            success: function (data) {
+                console.log(data);
+            },
+            type: 'GET'
+        });
+
+    });
+
+
+
+    function uploadDealcsv() { };
+
+    /*------ Method for read uploded csv file ------*/
+    uploadDealcsv.prototype.getCsv = function (e) {
+
+        let input = document.getElementById('dealCsv');
+        input.addEventListener('change', function () {
+
+            if (this.files && this.files[0]) {
+
+                var myFile = this.files[0];
+                var reader = new FileReader();
+
+                reader.addEventListener('load', function (e) {
+
+                    let csvdata = e.target.result;
+                    parseCsv.getParsecsvdata(csvdata); // calling function for parse csv data 
+                });
+
+                reader.readAsBinaryString(myFile);
+            }
+        });
+    }
+
+    /*------- Method for parse csv data and display --------------*/
+    uploadDealcsv.prototype.getParsecsvdata = function (data) {
+
+        let parsedata = [];
+
+        let newLinebrk = data.split("\n");
+        for (let i = 0; i < newLinebrk.length; i++) {
+            let isValid = true;
+
+            var person = {
+                FirstName: newLinebrk[i].split(",")[2],
+                LastName: newLinebrk[i].split(",")[3],
+                Age: newLinebrk[i].split(",")[4],
+                Sex: newLinebrk[i].split(",")[5],
+                Mobile: newLinebrk[i].split(",")[6],
+                Active: newLinebrk[i].split(",")[7]
+            };
+            if (person.FirstName.Length < 1)
+            {
+                isValid = false;
+            }
+
+            if (person.LastName.Length < 1) {
+                isValid = false;
+            }
+
+            if (!isNaN(person.Age)) {
+                isValid = false;
+            }
+
+            if (person.Sex != 'M' || person.Sex != 'F') {
+                isValid = false;
+            }
+
+            if (!isValid) {
+                break;
+            }
+
+            parsedata.push(person);
+
+            $.ajax({
+                url: 'https://localhost:44327/api/Person',
+                data: JSON.stringify(parsedata),
+                error: function () {
+
+                },
+                contentType: "application/json",
+                success: function (data) {
+                    
+                },
+                type: 'POST'
+            });
+        }
+
+    }
+
+
+
+    var parseCsv = new uploadDealcsv();
+    parseCsv.getCsv();
+
+</script>
+    
+}

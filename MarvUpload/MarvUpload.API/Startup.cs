@@ -40,7 +40,7 @@ namespace MarvUpload.API
             });
 
             services.AddDbContext<MarvContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("MiddlewareContext")
+                Configuration.GetConnectionString("conContext")
             ));
 
             services.AddControllers();
@@ -65,7 +65,13 @@ namespace MarvUpload.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
